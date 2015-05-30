@@ -1,0 +1,58 @@
+<!-- Responsive panel example-->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Activity #<%= @activity.id %></h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">
+            <dl class="dl-horizontal">
+              <dt>Date</dt>
+              <dd><%= @activity.date %></dd>
+
+              <dt>Category</dt>
+              <dd><%= @activity.category %></dd>
+
+              <dt>Name</dt>
+              <dd><%= @activity.name %></dd>
+
+              <dt>Lengthhrs</dt>
+              <dd><%= @activity.lengthhrs %></dd>
+
+              <dt>Lengthmins</dt>
+              <dd><%= @activity.lengthmins %></dd>
+
+              <dt>Calburned</dt>
+              <dd><%= @activity.calburned %></dd>
+
+              <dt>Intensity</dt>
+              <dd><%= @activity.intensity %></dd>
+
+              <dt>Profile</dt>
+              <dd><%= @activity.profile_id %></dd>
+
+            </dl>
+            <div class="btn-group btn-group-justified">
+              <a href="/activities" class="btn btn-primary">
+                <i class="fa fa-chevron-left"></i>
+              </a>
+
+              <a href="/activities/<%= @activity.id %>/edit" class="btn btn-warning">
+                <i class="fa fa-edit"></i>
+              </a>
+
+              <a href="/delete_activity/<%= @activity.id %>" class="btn btn-danger" rel="nofollow">
+                <i class="fa fa-trash-o"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End responsive panel example -->

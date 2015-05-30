@@ -1,0 +1,120 @@
+<!-- Validation failure messages -->
+
+<% if @activity.errors.any? %>
+  <% @activity.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<!-- Responsive panel example -->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Add Activity</h3>
+      </div>
+      <div class="panel-body">
+        <form action="/create_activity" method="post" class="form-horizontal">
+          <!-- Hidden input for authenticity token to protect from forgery -->
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+          <!-- Label and input for date -->
+          <div class="form-group">
+            <label for="date" class="col-sm-2 control-label">
+              Date
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="<%= @activity.date %>">
+            </div>
+          </div>
+
+          <!-- Label and input for category -->
+          <div class="form-group">
+            <label for="category" class="col-sm-2 control-label">
+              Category
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="category" name="category" placeholder="Category" class="form-control" value="<%= @activity.category %>">
+            </div>
+          </div>
+
+          <!-- Label and input for name -->
+          <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">
+              Name
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @activity.name %>">
+            </div>
+          </div>
+
+          <!-- Label and input for lengthhrs -->
+          <div class="form-group">
+            <label for="lengthhrs" class="col-sm-2 control-label">
+              Lengthhrs
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="lengthhrs" name="lengthhrs" placeholder="Lengthhrs" class="form-control" value="<%= @activity.lengthhrs %>">
+            </div>
+          </div>
+
+          <!-- Label and input for lengthmins -->
+          <div class="form-group">
+            <label for="lengthmins" class="col-sm-2 control-label">
+              Lengthmins
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="lengthmins" name="lengthmins" placeholder="Lengthmins" class="form-control" value="<%= @activity.lengthmins %>">
+            </div>
+          </div>
+
+          <!-- Label and input for calburned -->
+          <div class="form-group">
+            <label for="calburned" class="col-sm-2 control-label">
+              Calburned
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="calburned" name="calburned" placeholder="Calburned" class="form-control" value="<%= @activity.calburned %>">
+            </div>
+          </div>
+
+          <!-- Label and input for intensity -->
+          <div class="form-group">
+            <label for="intensity" class="col-sm-2 control-label">
+              Intensity
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="intensity" name="intensity" placeholder="Intensity" class="form-control" value="<%= @activity.intensity %>">
+            </div>
+          </div>
+
+          <!-- Label and input for profile_id -->
+          <div class="form-group">
+            <label for="profile_id" class="col-sm-2 control-label">
+              Profile
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="profile_id" name="profile_id" placeholder="Profile" class="form-control" value="<%= @activity.profile_id %>">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button class="btn btn-success">
+                Create Activity
+              </button>
+              or
+              <a href="/activities">Cancel</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End responsive panel example -->
