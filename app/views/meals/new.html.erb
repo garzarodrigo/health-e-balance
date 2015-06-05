@@ -22,33 +22,13 @@
           <!-- Hidden input for authenticity token to protect from forgery -->
           <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-          <!-- Label and input for category -->
+          <!-- Label and input for profile_id -->
           <div class="form-group">
-            <label for="category" class="col-sm-2 control-label">
-              Category
+            <label for="profile_id" class="col-sm-2 control-label">
+              Profile
             </label>
             <div class="col-sm-10">
-              <input type="text" id="category" name="category" placeholder="Category" class="form-control" value="<%= @meal.category %>">
-            </div>
-          </div>
-
-          <!-- Label and input for calportion -->
-          <div class="form-group">
-            <label for="calportion" class="col-sm-2 control-label">
-              Calportion
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="calportion" name="calportion" placeholder="Calportion" class="form-control" value="<%= @meal.calportion %>">
-            </div>
-          </div>
-
-          <!-- Label and input for numportions -->
-          <div class="form-group">
-            <label for="numportions" class="col-sm-2 control-label">
-              Numportions
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="numportions" name="numportions" placeholder="Numportions" class="form-control" value="<%= @meal.numportions %>">
+              <input type="text" id="profile_id" name="profile_id" placeholder="Profile" class="form-control" value="<%= @meal.profile_id %>">
             </div>
           </div>
 
@@ -65,27 +45,47 @@
           <!-- Label and input for name -->
           <div class="form-group">
             <label for="name" class="col-sm-2 control-label">
-              Name
+              Meal Name
             </label>
             <div class="col-sm-10">
               <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @meal.name %>">
             </div>
           </div>
 
-          <!-- Label and input for profile_id -->
+          <!-- Label and input for category -->
           <div class="form-group">
-            <label for="profile_id" class="col-sm-2 control-label">
-              Profile
+            <label for="category" class="col-sm-2 control-label">
+              Meal Type
             </label>
             <div class="col-sm-10">
-              <input type="text" id="profile_id" name="profile_id" placeholder="Profile" class="form-control" value="<%= @meal.profile_id %>">
+              <input type="text" id="category" name="category" placeholder="Category" class="form-control" value="<%= @meal.category %>">
+            </div>
+          </div>
+
+          <!-- Label and input for calportion -->
+          <div class="form-group">
+            <label for="calportion" class="col-sm-2 control-label">
+              Calories per Portion
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="calportion" name="calportion" placeholder="Calportion" class="form-control" value="<%= @meal.calportion %>">
+            </div>
+          </div>
+
+          <!-- Label and input for numportions -->
+          <div class="form-group">
+            <label for="numportions" class="col-sm-2 control-label">
+              # of Portions
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="numportions" name="numportions" placeholder="Numportions" class="form-control" value="<%= @meal.numportions %>">
             </div>
           </div>
 
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
               <button class="btn btn-success">
-                Create Meal
+                Enter Meal
               </button>
               or
               <a href="/meals">Cancel</a>

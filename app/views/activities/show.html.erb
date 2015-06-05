@@ -10,14 +10,18 @@
         <div class="row">
           <div class="col-md-12">
             <dl class="dl-horizontal">
+
+              <dt>Profile</dt>
+              <dd><%= @activity.profile_id %></dd>
+
               <dt>Date</dt>
               <dd><%= @activity.date %></dd>
 
-              <dt>Category</dt>
-              <dd><%= @activity.category %></dd>
-
-              <dt>Name</dt>
+              <dt>Activity Name</dt>
               <dd><%= @activity.name %></dd>
+
+              <dt>Activity Type</dt>
+              <dd><%= @activity.category %></dd>
 
               <dt>Lengthhrs</dt>
               <dd><%= @activity.lengthhrs %></dd>
@@ -25,14 +29,11 @@
               <dt>Lengthmins</dt>
               <dd><%= @activity.lengthmins %></dd>
 
-              <dt>Calburned</dt>
-              <dd><%= @activity.calburned %></dd>
-
               <dt>Intensity</dt>
               <dd><%= @activity.intensity %></dd>
 
-              <dt>Profile</dt>
-              <dd><%= @activity.profile_id %></dd>
+              <dt>Calories Burned</dt>
+              <dd><%= @activity.calburned %></dd>
 
             </dl>
             <div class="btn-group btn-group-justified">
