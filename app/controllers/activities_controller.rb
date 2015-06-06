@@ -1,6 +1,17 @@
 class ActivitiesController < ApplicationController
+
+  before_action :check_if_owner, only: [:edit,:update, :destroy]
+
+  def check_if_owner
+    activity = Activity.find(params[:id])
+    if activity.profile_id != current_user.id
+      redirect_to "/activities", notice: "Sorry! That's not yours, so you can't delete it."
+      end
+  end
+
   def index
     @activities = Activity.all
+
   end
 
   def show

@@ -17,6 +17,8 @@
 
 <div class="row isotope-container">
 <% @activities.each do |activity| %>
+
+
   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -37,11 +39,8 @@
           <dt>Activity Type</dt>
           <dd><%= activity.category %></dd>
 
-          <dt>Lengthhrs</dt>
-          <dd><%= activity.lengthhrs %></dd>
-
-          <dt>Lengthmins</dt>
-          <dd><%= activity.lengthmins %></dd>
+          <dt>Length</dt>
+          <dd><%= activity.lengthhrs %>h <%= activity.lengthmins %>min </dd>
 
           <dt>Intensity</dt>
           <dd><%= activity.intensity %></dd>
@@ -55,17 +54,20 @@
             <i class="fa fa-search-plus"></i>
           </a>
 
-          <a href="/activities/<%= activity.id %>/edit" class="btn btn-warning">
-            <i class="fa fa-edit"></i>
-          </a>
+          <% if activity.profile_id == current_user.id %>
+            <a href="/activities/<%= activity.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
 
-          <a href="/delete_activity/<%= activity.id %>" class="btn btn-danger" rel="nofollow">
-            <i class="fa fa-trash-o"></i>
-          </a>
+            <a href="/delete_activity/<%= activity.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
+
 <% end %>
 </div>
 

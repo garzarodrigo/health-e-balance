@@ -1,4 +1,15 @@
 class MealsController < ApplicationController
+
+  before_action :check_if_owner, only: [:edit,:update, :destroy]
+
+  def check_if_owner
+    meal = Meal.find(params[:id])
+    if meal.profile_id != current_user.id
+      redirect_to "/meals", notice: "Sorry! That's not yours, so you can't delete it."
+      end
+  end
+
+
   def index
     @meals = Meal.all
   end
