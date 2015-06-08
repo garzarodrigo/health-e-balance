@@ -6,6 +6,6 @@ class User < ActiveRecord::Base
 
 
 
-  has_many :activities
-  has_many :meals
+  has_many :activities, :class_name => "Activity", :foreign_key => "profile_id"
+  has_many :meals, :class_name => "Meal", :foreign_key => "profile_id"
 end

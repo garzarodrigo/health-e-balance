@@ -11,7 +11,7 @@ class MealsController < ApplicationController
 
 
   def index
-    @meals = Meal.all
+    @meals = current_user.meals
   end
 
   def show
@@ -29,7 +29,7 @@ class MealsController < ApplicationController
     @meal.numportions = params[:numportions]
     @meal.date = params[:date]
     @meal.name = params[:name]
-    @meal.profile_id = params[:profile_id]
+    @meal.profile_id = current_user.id
 
     if @meal.save
       redirect_to "/meals", :notice => "Meal created successfully."
