@@ -48,7 +48,7 @@
               Meal Type
             </label>
             <div class="col-sm-10">
-              <input type="text" id="category" name="category" placeholder="Category" class="form-control" value="<%= @meal.category %>">
+              <%= select_tag :category, options_for_select(["Breakfast", "Lunch", "Dinner"], @meal.category), :class => "form-control" %>
             </div>
           </div>
 

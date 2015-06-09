@@ -11,7 +11,7 @@
 
   <div class="form-group">
     <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, placeholder: "Email"%>
+    <%= f.email_field :email, autofocus: true, placeholder: "Email", :class => "form-control"%>
   </div>
 
   <div class="form-group">
@@ -19,12 +19,12 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %>
-    <%= f.password_field :password, autocomplete: "off",placeholder: "password" %>
+    <%= f.password_field :password, autocomplete: "off",placeholder: "password", :class => "form-control" %>
   </div>
 
   <div class="form-group">
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: "off",placeholder: "confirm password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off",placeholder:"confirm password", :class => "form-control" %>
   </div>
 
   </div>
@@ -35,61 +35,61 @@
   <!-- first name -->
   <div class="form-group">
     <%= f.label :firstname, "First Name" %>
-    <%= f.text_field :lastname, autocomplete: "off",placeholder: "First Name"%>
+    <%= f.text_field :firstname, autocomplete: "off",placeholder: "First Name", :class => "form-control"%>
   </div>
 
   <!-- last name -->
   <div class="form-group">
     <%= f.label :lastname, "Last Name" %>
-    <%= f.text_field :lastname, autocomplete: "off",placeholder: "Last Name" %>
+    <%= f.text_field :lastname, autocomplete: "off",placeholder: "Last Name", :class => "form-control" %>
   </div>
 
   <!-- birthday -->
   <div class="form-group">
     <%= f.label :birthday, "Birthday" %>
-    <%= f.date_field :birthday, autocomplete: "off" %>
+    <%= f.date_field :birthday, autocomplete: "off" , :class => "form-control"%>
   </div>
 
   <!-- height ft -->
   <div class="form-group">
     <%= f.label :heightft, "Height (ft)" %>
-    <%= f.number_field :heightft, autocomplete: "off",placeholder: "height (ft)" %>
+    <%= f.number_field :heightft, autocomplete: "off",placeholder: "height (ft)" , :class => "form-control"%>
   </div>
 
   <!-- height in -->
   <div class="form-group">
     <%= f.label :heightin, "Height (in)" %>
-    <%= f.number_field :heightin, autocomplete: "off", placeholder: "height (in)"%>
+    <%= f.number_field :heightin, autocomplete: "off", placeholder: "height (in)", :class => "form-control"%>
   </div>
 
   <!-- weight -->
   <div class="form-group">
     <%= f.label :weight, "Weight (lbs)" %>
-    <%= f.number_field :weight, autocomplete: "off",placeholder: "weight (lbs)" %>
+    <%= f.number_field :weight, autocomplete: "off",placeholder: "weight (lbs)" , :class => "form-control"%>
   </div>
 
   <!-- lifestyle -->
   <div class="form-group">
     <%= f.label :lifestyle, "Lifestyle" %>
-    <%= f.text_field :lifestyle, autocomplete: "off" %>
+    <%= f.select :lifestyle, ["sedentary", "active","pro-athete"] , :class => "form-control"%>
   </div>
 
   <!-- weight goals -->
   <div class="form-group">
     <%= f.label :weightgoal, "Weight Goal" %>
-    <%= f.text_field :weightgoal, autocomplete: "off"  %>
+    <%= f.select :weightgoal, ["shed them lbs","as sexy as I can be","bulk up"] , :class => "form-control" %>
   </div>
 
   <!-- target weight -->
   <div class="form-group">
     <%= f.label :targetweight, "Target Weight" %>
-    <%= f.number_field :targetweight, autocomplete: "off",placeholder: "target weight" %>
+    <%= f.number_field :targetweight, autocomplete: "off",placeholder: "target weight" , :class => "form-control"%>
   </div>
 
   <!-- photo -->
   <div class="form-group">
     <%= f.label :photo %>
-    <%= f.file_field :photo, autocomplete: "off" %>
+    <%= f.file_field :photo, autocomplete: "off" , :class => "form-control"%>
   </div>
 
 
