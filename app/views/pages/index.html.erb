@@ -1,1 +1,26 @@
 <h1> Hello world </h1>
+
+<div class="container">
+    <div class="row energysummary-report">
+        <div class="col-md-6">
+          hello top left
+        </div>
+        <div class="col-md-6">
+          hello top right
+        </div>
+    </div>
+    <div class="row meals-actvitites">
+        <div class="col-md-6">
+
+          <% @meals.each do |meal| %>
+            <%= meal.name %>
+          <% end %>
+        </div>
+        <div class="col-md-6">
+
+          <% @activities.each do |activity| %>
+            <%= activity.name %>
+          <% end %>
+        </div>
+    </div>
+</div>

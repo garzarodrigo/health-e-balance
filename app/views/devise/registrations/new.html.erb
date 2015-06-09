@@ -9,22 +9,22 @@
 
 
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, placeholder: "Email"%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <% end %>
+    <%= f.password_field :password, autocomplete: "off",placeholder: "password" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="form-group">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, autocomplete: "off",placeholder: "confirm password" %>
   </div>
 
   </div>
@@ -33,63 +33,63 @@
   <!-- modify from here to get additional fields -->
 
   <!-- first name -->
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="form-group">
+    <%= f.label :firstname, "First Name" %>
+    <%= f.text_field :lastname, autocomplete: "off",placeholder: "First Name"%>
   </div>
 
   <!-- last name -->
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="form-group">
+    <%= f.label :lastname, "Last Name" %>
+    <%= f.text_field :lastname, autocomplete: "off",placeholder: "Last Name" %>
   </div>
 
   <!-- birthday -->
-  <div class="field">
-    <%= f.label :birthday %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="form-group">
+    <%= f.label :birthday, "Birthday" %>
+    <%= f.date_field :birthday, autocomplete: "off" %>
   </div>
 
   <!-- height ft -->
-  <div class="field">
-    <%= f.label :height_ft %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="form-group">
+    <%= f.label :heightft, "Height (ft)" %>
+    <%= f.number_field :heightft, autocomplete: "off",placeholder: "height (ft)" %>
   </div>
 
   <!-- height in -->
-  <div class="field">
-    <%= f.label :height_in %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="form-group">
+    <%= f.label :heightin, "Height (in)" %>
+    <%= f.number_field :heightin, autocomplete: "off", placeholder: "height (in)"%>
   </div>
 
   <!-- weight -->
-  <div class="field">
-    <%= f.label :weight_lbs %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="form-group">
+    <%= f.label :weight, "Weight (lbs)" %>
+    <%= f.number_field :weight, autocomplete: "off",placeholder: "weight (lbs)" %>
   </div>
 
   <!-- lifestyle -->
-  <div class="field">
-    <%= f.label :lifestyle %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="form-group">
+    <%= f.label :lifestyle, "Lifestyle" %>
+    <%= f.text_field :lifestyle, autocomplete: "off" %>
   </div>
 
   <!-- weight goals -->
-  <div class="field">
-    <%= f.label :weight_goals %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="form-group">
+    <%= f.label :weightgoal, "Weight Goal" %>
+    <%= f.text_field :weightgoal, autocomplete: "off"  %>
   </div>
 
   <!-- target weight -->
-  <div class="field">
-    <%= f.label :target_weight %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="form-group">
+    <%= f.label :targetweight, "Target Weight" %>
+    <%= f.number_field :targetweight, autocomplete: "off",placeholder: "target weight" %>
   </div>
 
   <!-- photo -->
-  <div class="field">
-    <%= f.label :photo %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="form-group">
+    <%= f.label :photo %>
+    <%= f.file_field :photo, autocomplete: "off" %>
   </div>
 
 

@@ -22,16 +22,6 @@
           <!-- Hidden input for authenticity token to protect from forgery -->
           <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-          <!-- Label and input for profile_id -->
-          <div class="form-group">
-            <label for="profile_id" class="col-sm-2 control-label">
-              Profile
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="profile_id" name="profile_id" placeholder="Profile" class="form-control" value="<%= @activity.profile_id %>">
-            </div>
-          </div>
-
           <!-- Label and input for date -->
           <div class="form-group">
             <label for="date" class="col-sm-2 control-label">
