@@ -1,28 +1,38 @@
 <div class="container">
+
+
     <div class="row energysummary-report">
         <div class="col-md-6">
           <h1> Daily-E summary </h1>
-          <div> <h2>E-needed:<%= @benchmarkcals.round %> Calories</h2> </div>
-          <div> <h2>E-consumed: <%= @meals.map(&:total_calories).reduce(:+) %> Calories</h2></div>
-          <div> <h2>E-burned: <%= @activities.map(&:calburned).reduce(:+) %> Calories</h2></div>
-          <% if @meals.map(&:total_calories).reduce(:+) - @activities.map(&:calburned).reduce(:+) - @benchmarkcals > 0   %>
-            <div><h2> You are <%= (@meals.map(&:total_calories).reduce(:+) - @activities.map(&:calburned).reduce(:+)- @benchmarkcals).round %> Calories <strong>OVER</strong> </h2></div>
+          <div> <h2>E-needed: <font color="blue"><%= @benchmarkcals.round %></font> Calories</h2> </div>
+          <div> <h2>E-consumed: <font color="blue"><%= @meals.map(&:total_calories).reduce(:+) %></font> Calories</h2></div>
+          <div> <h2>E-burned: <font color="blue"><%= @activities.map(&:calburned).reduce(:+) %></font> Calories</h2></div>
+          <% if @meals.map(&:total_calories).reduce(:+) == nil || @activities.map(&:calburned).reduce(:+) == nil %>
+
+          <% else %>
+          <% if (@meals.map(&:total_calories).reduce(:+) - @activities.map(&:calburned).reduce(:+) - @benchmarkcals) > 0   %>
+            <div><h2> You are <font color="blue"><%= (@meals.map(&:total_calories).reduce(:+) - @activities.map(&:calburned).reduce(:+)- @benchmarkcals).round %></font> Calories <strong>OVER</strong> </h2></div>
             <div><h3>Stop staring at me and GO WORKOUT!</h3></div>
             <% else %>
-            <div><h2> You are <%= (@meals.map(&:total_calories).reduce(:+) - @activities.map(&:calburned).reduce(:+) - @benchmarkcals)*(-1).round %> Calories <strong>UNDER</strong>.</h2></div>
+            <div><h2> You are <font color="blue"><%= (@meals.map(&:total_calories).reduce(:+) - @activities.map(&:calburned).reduce(:+) - @benchmarkcals).round*(-1) %></font> Calories <strong>UNDER</strong>.</h2></div>
             <div><h3>Better eat something!</h3></div>
           <% end %>
-          <div> <h2>Your personal goal is:<%=@current_user.weightgoal%></h2> </div>
+          <% end %>
+          <div> <h2>Your personal goal is: <%=@current_user.weightgoal%></h2> </div>
 
         </div>
         <div class="col-md-6">
-          <h1> Your weekly progress </h1>
-          <div> [insert chart here]</div>
+          <h1> Welcome back,  <%= current_user.firstname %> </h1>
+          <img src="<%= current_user.photo %>" class="img-responsive">
         </div>
     </div>
     <div class="row meals-actvitites">
         <div class="col-md-6">
           <h1> Meals </h1>
+          <% if @meals.map(&:total_calories).reduce(:+) == nil %>
+          <h2>You need to enter meals for today!</h2>
+          <%  end %>
+
           <% @meals.each do |meal| %>
             <div>
               <h4>
@@ -35,6 +45,9 @@
 
         <div class="col-md-6">
           <h1> Activities </h1>
+          <% if @activities.map(&:calburned).reduce(:+) == nil %>
+          <h2>You need to enter activities for today!</h2>
+          <%  end %>
           <div>
             <h4>
           <% @activities.each do |activity| %>

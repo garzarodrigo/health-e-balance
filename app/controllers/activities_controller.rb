@@ -24,7 +24,7 @@ class ActivitiesController < ApplicationController
 
   def create
     @activity = Activity.new
-    @activity.date = params[:date]
+    @activity.date = Chronic.parse(params[:date])
     @activity.category = params[:category]
     @activity.name = params[:name]
     @activity.lengthhrs = params[:lengthhrs]
@@ -47,7 +47,7 @@ class ActivitiesController < ApplicationController
   def update
     @activity = Activity.find(params[:id])
 
-    @activity.date = params[:date]
+    @activity.date = Chronic.parse(params[:date])
     @activity.category = params[:category]
     @activity.name = params[:name]
     @activity.lengthhrs = params[:lengthhrs]

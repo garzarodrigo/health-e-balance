@@ -2,6 +2,12 @@ source 'https://rubygems.org'
 
 gem 'devise'
 
+gem 'chronic'
+
+gem 'bootstrap-datepicker-rails'
+
+gem 'carrierwave'
+
 gem 'starter_generators', :git => "http://github.com/rbetina/starter_generators.git", :branch => "simple"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

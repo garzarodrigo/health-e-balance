@@ -27,7 +27,7 @@ class MealsController < ApplicationController
     @meal.category = params[:category]
     @meal.calportion = params[:calportion]
     @meal.numportions = params[:numportions]
-    @meal.date = params[:date]
+    @meal.date = Chronic.parse(params[:date])
     @meal.name = params[:name]
     @meal.profile_id = current_user.id
 
@@ -48,7 +48,7 @@ class MealsController < ApplicationController
     @meal.category = params[:category]
     @meal.calportion = params[:calportion]
     @meal.numportions = params[:numportions]
-    @meal.date = params[:date]
+    @meal.date = Chronic.parse(params[:date])
     @meal.name = params[:name]
     @meal.profile_id = params[:profile_id]
 
