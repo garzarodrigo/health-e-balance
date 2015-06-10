@@ -11,14 +11,14 @@
 
           <% else %>
           <% if (@meals.map(&:total_calories).reduce(:+) - @activities.map(&:calburned).reduce(:+) - @benchmarkcals) > 0   %>
-            <div><h2> You are <font color="blue"><%= (@meals.map(&:total_calories).reduce(:+) - @activities.map(&:calburned).reduce(:+)- @benchmarkcals).round %></font> Calories <strong>OVER</strong> </h2></div>
-            <div><h3>Stop staring at me and GO WORKOUT!</h3></div>
+            <div><h2> You are <strong><font color="red"><%= (@meals.map(&:total_calories).reduce(:+) - @activities.map(&:calburned).reduce(:+)- @benchmarkcals).round %></font></strong> Calories <strong>OVER</strong> </h2></div>
+            <div style="color:red"><h3>Stop staring at me and GO WORKOUT!</h3></div>
             <% else %>
-            <div><h2> You are <font color="blue"><%= (@meals.map(&:total_calories).reduce(:+) - @activities.map(&:calburned).reduce(:+) - @benchmarkcals).round*(-1) %></font> Calories <strong>UNDER</strong>.</h2></div>
-            <div><h3>Better eat something!</h3></div>
+            <div><h2> You are <strong></strong><font color="#00FF00"><%= (@meals.map(&:total_calories).reduce(:+) - @activities.map(&:calburned).reduce(:+) - @benchmarkcals).round*(-1) %></font></strong> Calories <strong>UNDER</strong>.</h2></div>
+            <div style="color:#00FF00"><h3>Better eat something!</h3></div>
           <% end %>
           <% end %>
-          <div> <h2>Your personal goal is: <%=@current_user.weightgoal%></h2> </div>
+          <div> <h2>Your personal goal is: <strong><underline><%=@current_user.weightgoal%></strong></underline></h2> </div>
 
         </div>
         <div class="col-md-6">
