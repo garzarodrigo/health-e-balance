@@ -4,21 +4,21 @@
     <div class="row energysummary-report">
         <div class="col-md-6">
           <h1> Daily-E summary </h1>
-          <div> <h2>E-needed: <font color="blue"><%= @benchmarkcals.round %></font> Calories</h2> </div>
-          <div> <h2>E-consumed: <font color="blue"><%= @meals.map(&:total_calories).reduce(:+) %></font> Calories</h2></div>
-          <div> <h2>E-burned: <font color="blue"><%= @activities.map(&:calburned).reduce(:+) %></font> Calories</h2></div>
+          <div> <h2><i class="fa fa-user"></i>    E-needed: <font color="blue"><%= @benchmarkcals.round %></font> Calories</h2> </div>
+          <div> <h2><i class="fa fa-cutlery"></i>  E-consumed: <font color="blue"><%= @meals.map(&:total_calories).reduce(:+) %></font> Calories</h2></div>
+          <div> <h2><i class="fa fa-fire"></i>  E-burned: <font color="F6633"><%= @activities.map(&:calburned).reduce(:+) %></font> Calories</h2></div>
           <% if @meals.map(&:total_calories).reduce(:+) == nil || @activities.map(&:calburned).reduce(:+) == nil %>
 
           <% else %>
           <% if (@meals.map(&:total_calories).reduce(:+) - @activities.map(&:calburned).reduce(:+) - @benchmarkcals) > 0   %>
-            <div><h2> You are <strong><font color="red"><%= (@meals.map(&:total_calories).reduce(:+) - @activities.map(&:calburned).reduce(:+)- @benchmarkcals).round %></font></strong> Calories <strong>OVER</strong> </h2></div>
-            <div style="color:red"><h3>Stop staring at me and GO WORKOUT!</h3></div>
+            <div><h2><i class="fa fa-line-chart"></i>  You are <strong><font color="red"><%= (@meals.map(&:total_calories).reduce(:+) - @activities.map(&:calburned).reduce(:+)- @benchmarkcals).round %></font></strong> Calories <strong>OVER</strong> </h2></div>
+            <div style="color:red"><h3><i class="fa fa-play"></i>  Stop staring at me and GO WORKOUT!</h3></div>
             <% else %>
-            <div><h2> You are <strong></strong><font color="#00FF00"><%= (@meals.map(&:total_calories).reduce(:+) - @activities.map(&:calburned).reduce(:+) - @benchmarkcals).round*(-1) %></font></strong> Calories <strong>UNDER</strong>.</h2></div>
-            <div style="color:#00FF00"><h3>Better eat something!</h3></div>
+            <div><h2><i class="fa fa-line-chart"></i>  You are <strong></strong><font color="99CC33"><%= (@meals.map(&:total_calories).reduce(:+) - @activities.map(&:calburned).reduce(:+) - @benchmarkcals).round*(-1) %></font></strong> Calories <strong>UNDER</strong>.</h2></div>
+            <div><font color="99CC33"><h3><i class="fa fa-stop"></i>  Better eat something!</h3></font></div>
           <% end %>
           <% end %>
-          <div> <h2>Your personal goal is: <strong><underline><%=@current_user.weightgoal%></strong></underline></h2> </div>
+          <div> <h2><i class="fa fa-bullseye"></i>  Your personal goal is: <strong><underline><%=@current_user.weightgoal%></strong></underline></h2> </div>
 
         </div>
         <div class="col-md-6">
@@ -28,7 +28,9 @@
     </div>
     <div class="row meals-actvitites">
         <div class="col-md-6">
-          <h1> Meals </h1>
+          <h1> <a href="/meals"><font color="black">Meals today</font></a>
+            <a href="/meals/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
+          </h1>
           <% if @meals.map(&:total_calories).reduce(:+) == nil %>
           <h2>You need to enter meals for today!</h2>
           <%  end %>
@@ -36,25 +38,49 @@
           <% @meals.each do |meal| %>
             <div>
               <h4>
-            <%= meal.date %> <%= meal.category %> -- <%= meal.name %> -- <%= meal.total_calories %> Cals.
+              <a href="/meals/<%= meal.id %>" class="btn btn-primary">
+            <i class="fa fa-search-plus"></i></a>
+            <a href="/meals/<%= meal.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i></a>
+              <a href="/delete_meal/<%= meal.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+             <%= meal.category %> -- <%= meal.name %> -- <%= meal.total_calories %> Cals.
               </h4>
             </div>
-
           <% end %>
+          <% @meals.order(created_at: :desc)  %>
         </div>
 
         <div class="col-md-6">
-          <h1> Activities </h1>
+          <h1> <a href="/activities"><font color="black">Activities today</font></a>
+            <a href="/activities/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
+          </h1>
           <% if @activities.map(&:calburned).reduce(:+) == nil %>
           <h2>You need to enter activities for today!</h2>
           <%  end %>
           <div>
-            <h4>
+
           <% @activities.each do |activity| %>
-            <%= activity.date %> <%= activity.category %> -- <%= activity.name %> -- <%= activity.calburned %> Cals.
+             <h4>
+             <a href="/activities/<%= activity.id %>" class="btn btn-primary">
+            <i class="fa fa-search-plus"></i></a>
+            <a href="/activities/<%= activity.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+
+            <a href="/delete_activity/<%= activity.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+
+             <%= activity.category %> -- <%= activity.name %> -- <%= activity.calburned %> Cals.
+
+
+
             </h4>
           </div>
           <% end %>
+          <% @activities.order(created_at: :desc)  %>
         </div>
     </div>
 </div>

@@ -54,7 +54,7 @@ class ActivitiesController < ApplicationController
     @activity.lengthmins = params[:lengthmins]
     @activity.calburned = params[:calburned]
     @activity.intensity = params[:intensity]
-    @activity.profile_id = params[:profile_id]
+    @activity.profile_id = current_user.id
 
     if @activity.save
       redirect_to "/activities", :notice => "Activity updated successfully."
