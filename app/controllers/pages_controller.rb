@@ -27,11 +27,21 @@ class PagesController < ApplicationController
      calfactor = 1.5
     end
 
+    weightfactor = nil
+
+    if current_user.weightgoal == "shed them lbs"
+     weightfactor = 0.75
+     elsif current_user.weightgoal == "as sexy as I can be"
+       weightfactor = 1.00
+     else
+      weightfactor = 1.25
+    end
+
     now = Time.now.utc.to_date
     age = now.year - current_user.birthday.year - (current_user.birthday.to_date.change(:year => now.year) > now ? 1 : 0)
 
 
-    @benchmarkcals = (66.47 + (13.75*@current_user.weight/2.2) + (5*((@current_user.heightft*12 + @current_user.heightin)*2.54)) - (6.75 * age))*calfactor
+    @benchmarkcals = (66.47 + (13.75*@current_user.weight/2.2) + (5*((@current_user.heightft*12 + @current_user.heightin)*2.54)) - (6.75 * age))*calfactor*weightfactor
 
 
   end
